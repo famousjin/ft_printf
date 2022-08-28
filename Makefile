@@ -10,11 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= ft_printf.c \
+SRC_FILES	= ft_printf.c \
 		  ft_utile1.c \
 		  ft_utile2.c \
 
-OBJS   = ${SRCS:.c=.o}
+OBJS_FILES   = ${SRCS_FILES:.c=.o}
 NAME   = libftprintf.a
 CC     = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -25,10 +25,10 @@ all: ${NAME}
 %.o: %.c
 	${CC} ${FLAGS} -c $< -o $@
 
-$(NAME): ${OBJS}
+$(NAME): ${OBJS_FILES}
 	make -C libft
 	mv libft/libft.a $(NAME)
-	ar -rcs $(NAME) ${OBJS}
+	ar -rcs $(NAME) ${OBJS_FILES}
 
 clean:
 	${RM} ${OBJS}
@@ -43,5 +43,5 @@ m: re
 	gcc *.o -lftprintf -L.
 	./a.out
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
 
