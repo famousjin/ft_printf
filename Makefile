@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC_FILES	= ft_printf.c \
+SRCS_FILES	= ft_printf.c \
 		  ft_utile1.c \
 		  ft_utile2.c \
 
@@ -44,4 +44,3 @@ m: re
 	./a.out
 
 .PHONY: all clean fclean re
-

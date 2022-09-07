@@ -12,43 +12,43 @@
 
 #include "ft_printf.h"
 
-int ft_puthexmax(unsigned long long nb)
+int	ft_puthexmax(unsigned long long nb)
 {
-    static int  i;
+	static int	i;
 
-    i = 0;
-    if (nb >= 16)
-        ft_puthexmax(nb / 16);
-    ft_putchar("0123456789ABCDEF"[nb % 16]);
-    i++;
-    return (i);
+	i = 0;
+	if (nb >= 16)
+		ft_puthexmax(nb / 16);
+	ft_putchar("0123456789ABCDEF"[nb % 16]);
+	i++;
+	return (i);
 }
 
-int ft_putten(unsigned int nb)//부호없는 10진수 출력 %u
+int	ft_putten(unsigned int nb)
 {
-    static int  i;
+	static int	i;
 
-    i = 0;
-    if (nb >= 10)
-    {
-        ft_putten(nb / 10);
-        nb %= 10;
-    }
-    ft_putchar(nb + '0');
-    i++;
-    return (i);
+	i = 0;
+	if (nb >= 10)
+	{
+		ft_putten(nb / 10);
+		nb %= 10;
+	}
+	ft_putchar(nb + '0');
+	i++;
+	return (i);
 }
 
-int ft_putnbr(int nb)//%d, %i 
+int	ft_putnbr(int nb)
 {
-    char    *str;
-    int     len;
+	char	*str;
+	int		len;
 
-    str = ft_itoa(nb);
-    if (!str)
-        return (0);
-    len = ft_strlen(str);
-    write(1, str, len);
-    free(str);//메모리 해제를 하지 않으면 줄줄 샘! (테스트 해봄)
-    return (len);
+	str = ft_itoa(nb);
+	if (!str)
+		return (0);
+	len = ft_strlen(str);
+	write(1, str, len);
+	free(str);
+	return (len);
 }
